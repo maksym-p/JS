@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+			<title>Landing Page</title>
+			<link href="style/style-main.css" rel="stylesheet">
+			<link href="style/font-awesome.css" rel="stylesheet">
+		</head>
+		<body>
+			<header class="page-header">
+				<nav>
+					<div class="mobile-hamburger">
+						<i class="fa fa-bars" aria-hidden="true"></i>
+					</div>
+					<ul class="main-menu">
+						<li><a href="#" title="Home page">Home</a></li>
+						<li><a href="#" title="About us">About</a></li>
+						<li><a href="#" title="Our blog">Blog</a></li>
+						<li><a href="#" title="Features">Features</a></li>
+						<li><a href="#" title="Our contacts">Contacts</a></li>
+					</ul>
+					<div class="question_btn">
+						<i id="fa fa_quest" class="fa fa-question" aria-hidden="true"></i>
+					</div>
+					<ul class="menu-quest">
+						<li><a href="#">Send us an e-mail</a></li>
+						<li><a href="#">Enter a live-chat</a></li>
+						<li><a href="#">Open help page</a></li>
+					</ul>
+				</nav>
+			</header>
+			<script>
+			var body = document.body;
+			var hamburger = document.querySelector('.mobile-hamburger');
+			var ul = document.querySelector('.main-menu');
+			var fah = document.querySelector('.mobile-hamburger i');
+			var question_btn = document.querySelector('.question_btn');
+			var menu_quest = document.querySelector('.menu-quest');
+			hamburger.addEventListener('click', function () {
+					body.classList.toggle('overlay');
+					ul.classList.toggle('main_menu_open');
+					hamburger.classList.toggle('mobile_hamburger_open');
+					fah.classList.toggle('fa-bars');
+					fah.classList.toggle('fa-chevron-left');
+					fa_q.classList.toggle('fa_q_none');
+			});
+			body.addEventListener('click', function (fun) {
+					if (fun.target.classList.contains('mobile-hamburger') ||
+					fun.target.classList.contains('fa')) {
+							return;
+					}
+					if (body.classList.contains('overlay')) {
+							ul.classList.remove('main_menu_open');
+							hamburger.classList.remove('mobile_hamburger_open');
+							body.classList.remove('overlay');
+							fah.classList.add('fa-bars');
+							fah.classList.remove('fa-chevron-left');
+							fa_q.classList.remove('fa_q_none');
+					}
+			});
+			question_btn.addEventListener('click', function () {
+				menu_quest.classList.toggle('menu_quest_show');
+			});
+			</script>
+		</body>
+	</html>

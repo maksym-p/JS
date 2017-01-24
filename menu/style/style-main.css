@@ -1,0 +1,211 @@
+@font-face {
+	font-family: Fontawesome; /* Гарнитура шрифта */
+	src: url(fonts/fontawesome-webfont.ttf); /* Путь к файлу со шрифтом */
+  }
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	font-family: "Lucida sans", "Helvetica";
+	font-size: 16px;
+}
+
+body::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	background: transparent;
+	-webkit-transition: background 200ms ease-in-out;
+	transition: background 200ms ease-in-out;
+	z-index: 25;
+}
+
+body.overlay::after {
+	background: rgba(0, 0, 0, 0.4);
+	width: 100%;
+	height: 100%;
+}
+
+.page-header {
+	position: relative;
+	width: 100%;
+	background: #505050;
+	height: 60px;
+}
+
+.page-header nav {
+	text-align: center;
+	position: relative;
+}
+
+nav .mobile-hamburger, nav .question_btn {
+	top: 11px;
+	padding: 1px;
+	color: #bbb;
+	font-size: 1.5em;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	border: 3px solid #888;
+	border-radius: 5px;
+	position: absolute;
+	cursor: pointer;
+	visibility: hidden;
+	z-index: 100;
+}
+
+nav .mobile-hamburger {
+	left: 11px;
+}
+
+nav .question_btn {
+	right: 11px;
+	visibility: visible;
+	-webkit-transition: all 100ms;
+			transition: all 100ms;
+	z-index: 20;
+}
+
+nav .fa_q_none {
+	display: none;
+}
+
+nav .mobile-hamburger:hover {
+	border-color: #aaa;
+	color: #fff;
+}
+nav .mobile-hamburger:active, nav .question_btn:active {
+	transform: scale(0.8);
+}
+
+nav .question_btn:hover {
+	background: #aaa;
+	border-color: #aaa;
+	color: #45668e;
+}
+
+.main-menu {
+	list-style: none;
+	font-size: 0;
+}
+
+.main-menu li {
+	display: inline-block;
+	font-size: 17px;
+}
+
+.main-menu li a {
+	min-width: 110px;
+	display: block;
+	padding: 19px 0 18px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	border-bottom: 2px solid #505050;
+  transition: all 250ms ease-in-out;
+}
+
+.main-menu li a:hover {
+	background: rgba(255,255,255,.4);
+	color: #ADD8E6;
+	border-bottom: 2px solid #fff;
+}
+
+.menu-quest {
+	top: -250px;
+	right: 70px;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	height: 238px;
+	width: 250px;
+	background: #ccc;
+	-webkit-transition: all 500ms;
+			transition: all 500ms;
+	box-shadow: 5px 5px 15px #555;
+	z-index: 20;
+	visibility: hidden;
+}
+
+nav .menu_quest_show {
+	top: 80px;
+	visibility: visible;
+}
+
+.menu-quest li a {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	padding: 20px 0 18px;
+	text-align: center;
+	color: #505050;
+	text-decoration: none;
+	border-bottom: 2px solid #505050;
+  transition: all 250ms ease-in-out;
+}
+
+.menu-quest li:last-child a {
+	border-bottom: 0;
+}
+
+.menu-quest li a:hover {
+	background: rgba(255,255,255,.6);
+}
+
+@media (max-width: 580px) {
+
+	nav .mobile-hamburger {
+		visibility: visible;
+		transition: all 500ms ease;
+	}
+	nav div.mobile_hamburger_open {
+		left: 63%;
+	}
+	.main-menu {
+		position: fixed;
+		height: 100%;
+		width: 60%;
+		left: -65%;
+		background: #505050;
+		-webkit-transition: all 500ms;
+				transition: all 500ms;
+		box-shadow: 5px 0 15px #333;
+		z-index: 50;
+	}
+	nav ul.main_menu_open {
+		left: 0;
+	}
+	.page-header .main-menu li {
+		display: block;
+		border-bottom: 1px solid #777;
+	}
+	.page-header .main-menu li:last-child {
+		border-bottom: 0;
+	}
+	.page-header .main-menu li a {
+		height: 3em;
+		line-height: 3em;
+		border-bottom: 0;
+		border-left: 2px solid #505050;
+	}
+	.page-header .main-menu li a:hover {
+		border-left: 2px solid #fff;
+	}
+	.menu-quest {
+		top: 80px;
+		right: -250px;
+		visibility: hidden;
+	}
+	nav .menu_quest_show {
+		right: 25px;
+		visibility: visible;
+	}
+}
